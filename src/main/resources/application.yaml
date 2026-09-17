@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: insights-api
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+insights:
+  demo-tokens:
+    - token: ${AMAZON_TOKEN:demo-amazon-token}
+      tenant: amazon
+    - token: ${FLIPKART_TOKEN:demo-flipkart-token}
+      tenant: flipkart
+    - token: ${WALMART_TOKEN:demo-walmart-token}
+      tenant: walmart
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example.insights: INFO
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
